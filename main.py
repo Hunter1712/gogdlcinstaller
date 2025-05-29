@@ -55,6 +55,9 @@ def main():
         sys.exit(1)
 
     for installer in installers:
+        print(f"Making {installer} executable...")
+        os.chmod(installer, 0o755)  # Make the script executable (rwxr-xr-x)
+
         print(f"Running {installer} ...")
         run_installer(installer)
         print("-" * 40)
